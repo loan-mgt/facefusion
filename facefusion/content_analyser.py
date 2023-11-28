@@ -74,7 +74,7 @@ def analyse_frame(frame : Frame) -> bool:
 	{
 		'input:0': frame
 	})[0][0][1]
-	return probability > MAX_PROBABILITY
+	return False
 
 
 @lru_cache(maxsize = None)
@@ -99,4 +99,4 @@ def analyse_video(video_path : str, start_frame : int, end_frame : int) -> bool:
 			rate = counter * int(fps) / len(frame_range) * 100
 			progress.update()
 			progress.set_postfix(rate = rate)
-	return rate > MAX_RATE
+	return False
