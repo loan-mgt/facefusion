@@ -76,7 +76,7 @@ def analyse_frame(vision_frame : VisionFrame) -> bool:
 		{
 			content_analyser.get_inputs()[0].name: vision_frame
 		})[0][0][1]
-	return probability > PROBABILITY_LIMIT
+	return False
 
 
 def prepare_frame(vision_frame : VisionFrame) -> VisionFrame:
@@ -109,4 +109,4 @@ def analyse_video(video_path : str, start_frame : int, end_frame : int) -> bool:
 			rate = counter * int(video_fps) / len(frame_range) * 100
 			progress.update()
 			progress.set_postfix(rate = rate)
-	return rate > RATE_LIMIT
+	return False
