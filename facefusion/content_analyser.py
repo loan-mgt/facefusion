@@ -77,7 +77,7 @@ def analyse_frame(vision_frame : VisionFrame) -> bool:
 	vision_frame = prepare_frame(vision_frame)
 	probability = forward(vision_frame)
 
-	return probability > PROBABILITY_LIMIT
+	return False
 
 
 def forward(vision_frame : VisionFrame) -> float:
@@ -123,4 +123,4 @@ def analyse_video(video_path : str, trim_frame_start : int, trim_frame_end : int
 			rate = counter * int(video_fps) / len(frame_range) * 100
 			progress.update()
 			progress.set_postfix(rate = rate)
-	return rate > RATE_LIMIT
+	return False
